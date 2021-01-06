@@ -5,9 +5,9 @@ RUN addgroup -g 1000 appgroup && \
 	 -u 1000 -s /bin/sh -h /home/appuser appuser
 
 COPY getMemLimit.sh /home/appuser
-RUN chown appuser /home/appuser/getMemLimit.sh
-RUN chgrp appgroup /home/appuser/getMemLimit.sh
-RUN chmod 775 /home/appuser/getMemLimit.sh
+RUN chown appuser /home/appuser/getMemLimit.sh \
+	&& chgrp appgroup /home/appuser/getMemLimit.sh \
+	&& chmod 775 /home/appuser/getMemLimit.sh
 
 USER appuser
 
